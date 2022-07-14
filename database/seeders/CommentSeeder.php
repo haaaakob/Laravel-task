@@ -15,13 +15,13 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-//        Comment::factory()->count(40)->create();
+        $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i <= 20; $i++) {
+        for ($i = 0; $i <= 50; $i++) {
             Comment::create([
                 'user_id' => rand(0, 20),
                 'post_id' => rand(0, 30),
-                'text' => $this->$GLOBALS->text
+                'text' => $faker->firstName
             ]);
         }
     }

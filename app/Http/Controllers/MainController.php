@@ -101,7 +101,7 @@ class MainController extends Controller
     public function private()
     {
         $userInfo = ['loggedUser'=>User::where('id','=',session('loggedUser'))->get()];
-        $post = ['post'=>Post::with('comments')->get()];
+        $post = ['post'=>Post::with('comments')->paginate(4)];
 
 //        echo '<pre>'.json_encode($userInfo, JSON_PRETTY_PRINT).'</pre>';die();
 
@@ -111,7 +111,7 @@ class MainController extends Controller
     public function admin()
     {
         $userInfo = ['loggedUser'=>User::where('id','=',session('loggedUser'))->get()];
-        $post = ['post'=>Post::with('comments')->get()];
+        $post = ['post'=>Post::with('comments')->paginate(4)];
 
 //        echo '<pre>'.json_encode($userInfo, JSON_PRETTY_PRINT).'</pre>';die();
 

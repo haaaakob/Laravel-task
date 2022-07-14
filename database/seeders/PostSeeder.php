@@ -18,12 +18,14 @@ class PostSeeder extends Seeder
     {
 //        Post::factory()->count(30)->create();
 
+        $faker = \Faker\Factory::create();
+
         for ($i = 0; $i <= 30; $i++) {
             Post::create([
                 'user_id' => rand(0, 20),
-                'title' => $this->$GLOBALS->title,
-                'description' => $this->$GLOBALS->title,
-                'image' => $this->$GLOBALS->image,
+                'title' => $faker->title,
+                'description' => $faker->title,
+                'image' => $faker->image,
             ]);
         }
 

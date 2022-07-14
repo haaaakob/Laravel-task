@@ -1,0 +1,47 @@
+.info_div{
+    margin: 80px
+}
+.avatar_div{
+    width: 100px;
+    height: 100px
+}
+.add_post{
+    margin: 100px
+}
+#error_div{
+    width: 400px
+}
+#post{
+    width: 300px
+}
+#submit_post{
+    margin: 20px 0 100px 0 ; width: 100px
+}
+.all_post_div{
+    display: flex
+}
+.main_post{
+    width: 220px;
+    height: 400px;
+    border: 2px solid black;
+    margin: 10px
+}
+.post_img{
+    width: 200px;
+    height: 120px;
+    margin: 10px
+}
+#btn{
+    width: 130px;
+    margin: 3px;
+    background-color: lightblue;
+}
+.logout{
+    text-decoration: none
+}
+.comment{
+    font-size: 10px; margin: 5px
+}
+.reg_div{
+    margin: 100px 300px
+}

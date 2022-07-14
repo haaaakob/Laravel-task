@@ -21,14 +21,23 @@ class UserSeeder extends Seeder
         $faker = \Faker\Factory::create();
         for ($i = 0; $i <= 20; $i++) {
             User::create([
-                'name' => $this->$faker->firstName(),
-                'surname' => $this->$faker->lastName(),
-                'email' => $this->$faker->unique()->safeEmail(),
+                'name' => $faker->firstName(),
+                'surname' => $faker->lastName(),
+                'email' => $faker->unique()->safeEmail(),
                 'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'password' => '2444666668888888', // password
                 'remember_token' => Str::random(10),
             ]);
         }
+        User::create([
+            'name' => 'Hakob',
+            'surname' => 'Hakobyan',
+            'email' => 'hakob@mail.ru',
+            'email_verified_at' => now(),
+            'password' => '2444666668888888', // password
+            'remember_token' => Str::random(10),
+            'is_admin' => 1
+        ]);
     }
 
 }
