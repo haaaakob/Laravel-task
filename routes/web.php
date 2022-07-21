@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\MainController;
+use \App\Http\Controllers\ForgotPasswordController;
+use \App\Mail\ResetPasswordMail;
+use \Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +39,18 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/private', [MainController::class, 'private']);
     Route::get('/admin', [MainController::class, 'admin']);
 });
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forgetPassword');
+//Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password');
+//Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('updatePassword');
+
+Route::get('/email', function (){
+//    Mail::to('developerdevel206@gmail.com')->send(new ResetPasswordMail());
+    return new ResetPasswordMail();
+});
+
+Route::get('changePassword/{token}', [ForgotPasswordController::class, 'change'])->name('change');
+Route::post('changePassword', [ForgotPasswordController::class, 'updatePassword'])->name('updatePassword');
+
+

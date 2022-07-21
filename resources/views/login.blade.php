@@ -16,6 +16,11 @@
 <div style="margin: 100px 300px">
 
     <form action="{{route('check')}}" method="post">
+        @if(\Illuminate\Support\Facades\Session::get('message'))
+            <div class="alert alert-success">
+                {{\Illuminate\Support\Facades\Session::get('message')}}
+            </div>
+        @endif
         @if(\Illuminate\Support\Facades\Session::get('fail'))
             <div class="alert alert-danger">
                 {{\Illuminate\Support\Facades\Session::get('fail')}}
@@ -33,6 +38,8 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <button type="submit" class="btn btn-primary" id="send_log" name="send" >{{__('log in')}}</button>
     </form>
+    <a href="{{route('forget')}}" class="logout">forget password</a>
+    <br>
     <a href="{{route('register')}}" class="logout">{{__('I do not have an account! create new')}}</a>
 </div>
 </body>
